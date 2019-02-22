@@ -19,6 +19,7 @@
       }
       .container {
         margin: 10px;
+      }
       
     </style>
   </head>

@@ -2,6 +2,7 @@
 
 @section('content')
   <div class='container'>
+    <p>Learn more <a href='/about' >about</a> us!</p>
     <h4>Do you have a list of books to read, but aren't sure which should be next? You've come to the right place.</h4>
     <p>Get your own list started. Add some books!</p>
 
@@ -13,6 +14,6 @@
       <input type="text" name='recommended' placeholder='Recommended by'>
       <button type='submit'>Add Book</button>
     </form>
-    
+
   </div>
 @endsection
