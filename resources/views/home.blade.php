@@ -14,6 +14,10 @@
       <input type="text" name='recommended' placeholder='Recommended by'>
       <button type='submit'>Add Book</button>
     </form>
-
+    <ul>
+      @foreach($books as $book)
+        <li><?= $book; ?></li>
+      @endforeach
+    </ul>
   </div>
 @endsection
