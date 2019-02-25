@@ -8,12 +8,7 @@ class PagesController extends Controller
 {
   public function home() 
   {
-    $books = [
-      'Lolita',
-      'Chalice',
-      'Wide Sargasso Sea'
-    ];
-    return view('home', ['books' => $books] );
+    return view('home');
   }
   public function about() 
   {
