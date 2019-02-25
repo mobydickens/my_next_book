@@ -20,6 +20,9 @@
       .container {
         margin: 10px;
       }
+      .book-box {
+        border: 1px solid black;
+      }
       
     </style>
   </head>
