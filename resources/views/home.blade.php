@@ -2,8 +2,6 @@
 
 @section('content')
   <div class='container'>
-    <p>Learn more <a href='/about' >about</a> us!</p>
-    <p>See <a href='/books'>your</a> list of books!</p>
     <h4>Do you have a list of books to read, but aren't sure which should be next? You've come to the right place.</h4>
     <p>Get your own list started. Add some books!</p>
 

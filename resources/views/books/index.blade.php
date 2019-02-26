@@ -1,4 +1,4 @@
-@extends('layout');
+@extends('layout')
 
 @section('content')
   <h1>Books</h1>
@@ -15,5 +15,4 @@
     </div>
   @endforeach
 
-  <p><a href='/'>Home</a></p>
 @endsection
