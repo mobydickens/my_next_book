@@ -35,7 +35,7 @@
           class="form-group form-control {{ $errors->has('recommended') ? 'is-invalid' : ''}}" 
           type="text" 
           name='recommended' 
-          placeholder='Recommended by'
+          placeholder='Submitted by'
           id='recommended'
           value="{{ old('recommended') }}"
           >
@@ -46,7 +46,7 @@
             id='check1'>
           <label 
             class=form-check-label
-            for='check1'>Check if recommended not applicable
+            for='check1'>Check if you'd like to remain anonymous
           </label>
           <script>
             document.getElementById('check1').onchange = function() {

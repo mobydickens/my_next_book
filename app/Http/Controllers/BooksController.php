@@ -15,12 +15,12 @@ class BooksController extends Controller
 
   public function store(Book $book) 
   {
-    $validated = request()->validate([
+    request()->validate([
       'title' => 'required',
       'author' => 'required',
       'genre' => 'required'
     ]);
-    $book->create($validated);
+    $book->create(request(['title', 'author', 'genre', 'recommended']));
     return redirect('/books');
   }
 

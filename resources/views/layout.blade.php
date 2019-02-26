@@ -14,7 +14,6 @@
         margin:0;
         padding: 0;
         box-sizing: border-box;
-        color: #636b6f;
         font-family: 'Nunito', sans-serif;
         font-weight: 200;
       } 
@@ -24,9 +23,6 @@
       .links {
         text-decoration: none;
         color: white;
-      }
-      .book-box {
-        border: 1px solid black;
       }
       
     </style>
