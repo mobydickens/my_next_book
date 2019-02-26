@@ -4,8 +4,11 @@
   <h1>Books</h1>
 
   @foreach ($books as $book)
+    
     <div class='book-box'>
-      <p>{{ $book->title }}</p>
+      <a href='/books/{{ $book->id }}'>
+        <p>{{ $book->title }}</p>
+      </a>
       <p>{{ $book->author }}</p>
       <p>{{ $book->genre }}</p>
       <p>{{ $book->recommended }}</p>

@@ -21,5 +21,5 @@
 
     <button type='submit'>Delete</button>
   </form>
-  <p><a href='/'>Home</a></p>
+  <p><a href='/books/{{ $book->id }}'>Back</a></p>
 @endsection
