@@ -14,7 +14,6 @@
         margin:0;
         padding: 0;
         box-sizing: border-box;
-        background-color: #fff;
         color: #636b6f;
         font-family: 'Nunito', sans-serif;
         font-weight: 200;
@@ -25,9 +24,6 @@
       .links {
         text-decoration: none;
         color: white;
-      }
-      .container {
-        margin: 10px;
       }
       .book-box {
         border: 1px solid black;
@@ -44,12 +40,13 @@
       </button>
       <div class='collapse navbar-collapse bg-primary' id='navbarNavAltMarkup'>
         <div class='navbar-nav bg-primary'>
-          <a class='nav-link nav-item' href='/books'>Books</a>
+          <a class='nav-link nav-item' href='/books'>Browse</a>
           <a class='nav-link nav-item' href='/about'>About</a>
         </div>
       </div>
     </nav>
-    
-    @yield('content')
+    <div class='container'>
+      @yield('content')
+    </div>
   </body>
 </html>

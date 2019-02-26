@@ -12,4 +12,8 @@ class Book extends Model
     'genre',
     'recommended'
   ];
+  public function reviews() 
+  {
+    return $this->hasMany(Review::class);
+  }
 }
