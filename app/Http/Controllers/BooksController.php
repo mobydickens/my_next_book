@@ -37,5 +37,9 @@ class BooksController extends Controller
     $book->save();
     return redirect('/books');
   }
+  public function destroy($id) {
+    Book::find($id)->delete();
+    return redirect('/books');
+  }
 }
  
