@@ -19,7 +19,7 @@
     {{ method_field('DELETE') }}
     @csrf
 
-    <button type='button' class='btn btn-primary'>Delete</button>
+    <button type='submit' class='btn btn-primary'>Delete</button>
     @if ($errors->any())
       <div>
         <ul>

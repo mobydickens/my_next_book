@@ -1,24 +1,53 @@
 @extends('layout')
 
 @section('content')
-
-  <h1>{{ $book->title }}</h1>
-  <p>{{ $book->author }}</p>
-  <p>{{ $book->genre }}</p>
-  <p>{{ $book->recommended }}</p>
-
-  @if ($book->reviews->count())
-    <div>
-      @foreach ($book->reviews as $review)
-        <div class='book-box'>
-          <p>{{ $review->name }}</p>
-          <p>{{ $review->rating }}</p>
-          <p>{{ $review->review }}</p>
-        </div>
-      @endforeach
+  <div class='d-flex'>
+    <div class='card m-5' style="width: 20rem;">
+      <img 
+        src="http://www.realwayoflife.com/wp-content/uploads/2018/10/placeholder-cover-1.jpg" class="card-img-top" 
+        alt="placeholder">
+      <div class='card-body'>
+        <h3 class='card-title'>{{ $book->title }}</h3>
+        <h4 class='card-subtitle mb-2 text-muted'>{{ $book->author }}</h4>
+        <p>{{ $book->genre }}</p>
+        <p>Submitted by: {{ $book->recommended }}</p>
+      </div>
     </div>
-  @endif
+
+    @if ($book->reviews->count())
+      <div class='m-5'>
+        <h5>COMMUNITY REVIEWS</h5>
+        <h6>Average Rating: - </h6>
+        
+        @foreach ($book->reviews as $review)
+          <div class='card'>
+            <div class='card-header'>
+              @if ($review->rating == '5')
+                <div>⭐⭐⭐⭐⭐</div>
+                @elseif ($review->rating == '4')
+                <div>⭐⭐⭐⭐</div>
+                @elseif ($review->rating == '3')
+                <div>⭐⭐⭐</div>
+                @elseif ($review->rating == '2')
+                <div>⭐⭐</div>
+                @elseif ($review->rating == '1')
+                <div>⭐</div>
+                @elseif ($review->rating == '0')
+                <div class='badge badge-warning'>Unfinished</div>
+              @endif
+            </div>
+            <div class='card-body'>
+              <div class='blockquote mb-0'>
+                <p>{{ $review->review }}</p>
+                <p class='blockquote-footer'>{{ $review->name }}</p>
+              </div>
+            </div>
+          </div>
+        @endforeach
+        <a href="/books/{{ $book->id }}/edit">Leave a review</a>
+      </div>
+    @endif
+  </div>
   <a href="/books">Back</a>
-  <a href="/books/{{ $book->id }}/edit">Edit</a>
 
 @endsection
