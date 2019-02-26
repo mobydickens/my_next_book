@@ -2,7 +2,7 @@
 
 @section('content')
   <div class='d-flex'>
-    <div class='card m-5' style="width: 20rem;">
+    <div class='card m-4 mt-5' style="width: 20rem;">
       <img 
         src="http://www.realwayoflife.com/wp-content/uploads/2018/10/placeholder-cover-1.jpg" class="card-img-top" 
         alt="placeholder">
@@ -14,13 +14,14 @@
       </div>
     </div>
 
-    @if ($book->reviews->count())
-      <div class='m-5'>
-        <h5>COMMUNITY REVIEWS</h5>
-        <h6>Average Rating: - </h6>
+    <div class='m-5'>
+      <h5>COMMUNITY REVIEWS</h5>
+      <h6>Average Rating: - </h6>
+      
+      @if ($book->reviews->count())
         
         @foreach ($book->reviews as $review)
-          <div class='card'>
+          <div class='card' style="width: 38rem;">
             <div class='card-header'>
               @if ($review->rating == '5')
                 <div>⭐⭐⭐⭐⭐</div>
@@ -45,8 +46,8 @@
           </div>
         @endforeach
         <a href="/books/{{ $book->id }}/edit">Leave a review</a>
+      @endif
       </div>
-    @endif
   </div>
   <a href="/books">Back</a>
 
