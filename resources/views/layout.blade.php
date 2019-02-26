@@ -6,7 +6,8 @@
     <title>My Next Book</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Styles -->
     <style>
       * {
@@ -17,27 +18,13 @@
         color: #636b6f;
         font-family: 'Nunito', sans-serif;
         font-weight: 200;
-      }
-      .header {
+      } 
+      /* .all-links {
         display: flex;
-        justify-content: center;
-        background-color: #0080FF;
-        height: 80px;       
-        padding: 10px;
-      }
-      .all-links {
-        display: flex;
-      }
+      } */
       .links {
         text-decoration: none;
-        background-color: #0080FF;
         color: white;
-        padding: 30px 40px 0 40px;
-        font-size: 20px;
-      }
-      .header-title {
-        font-size: 50px;
-        padding-top: 0;
       }
       .container {
         margin: 10px;
@@ -50,11 +37,18 @@
   </head>
 
   <body>
-    <div class='header'>
-      <a class='links' href="/books">Books</a>
-      <a class='header-title links' href='/'>My Next Book</a>
-      <a class='links' href='/about'>About</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class='navbar-brand links' href='/'>My Next Book</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"     data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class='collapse navbar-collapse bg-primary' id='navbarNavAltMarkup'>
+        <div class='navbar-nav bg-primary'>
+          <a class='nav-link nav-item' href='/books'>Books</a>
+          <a class='nav-link nav-item' href='/about'>About</a>
+        </div>
+      </div>
+    </nav>
     
     @yield('content')
   </body>
