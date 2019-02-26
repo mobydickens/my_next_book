@@ -24,12 +24,12 @@ class BooksController extends Controller
   }
   public function edit($id) 
   {
-    $book = Book::find($id);
+    $book = Book::findOrFail($id);
     return view('books.edit', compact('book'));
   }
   public function update($id) 
   {
-    $book = Book::find($id);
+    $book = Book::findOrFail($id);
     $book->title = request('title');
     $book->author = request('author');
     $book->genre = request('genre');
