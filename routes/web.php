@@ -17,4 +17,5 @@ Route::get('about', 'PagesController@about');
 
 Route::resource('books', 'BooksController');
 
+Route::post('/books/{book}/reviews', 'BooksReviewsController@store');
 Route::patch('/reviews/{review}', 'BooksReviewsController@update');

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-  <div class='d-flex'>
+  <div class='d-flex align-items-start'>
     <div class='card m-4 mt-5' style="width: 20rem;">
       <img 
         src="http://www.realwayoflife.com/wp-content/uploads/2018/10/placeholder-cover-1.jpg" class="card-img-top" 
@@ -11,6 +11,7 @@
         <h4 class='card-subtitle mb-2 text-muted'>{{ $book->author }}</h4>
         <p>{{ $book->genre }}</p>
         <p>Submitted by: {{ $book->recommended }}</p>
+        <a href="/books/{{ $book->id }}/edit">Edit book details</a>
       </div>
     </div>
 
@@ -66,9 +67,28 @@
             </div>
           </div>
         @endforeach
-        <a href="/books/{{ $book->id }}/edit">Leave a review</a>
       @endif
-      </div>
+
+      <!-- add review form -->
+      <form method='POST' action="/books/{{ $book->id }}/reviews">
+        @csrf
+        <h4>Leave a review</h4>
+        <div class='form-group'>
+          <label>Your name:</label>
+          <input name='name' type="text">
+        </div>
+        <div class='form-group'>
+          <label>My rating:</label>
+          <input type="number" name='rating' min='0' max='5'>
+        </div>
+        <div class='form-group'>
+          <label>What did you think?</label>
+          <textarea class='' name='review' type="text"></textarea>
+        </div>
+        <button type='submit' class='btn btn-primary'>Save</button>
+        </div>
+      </form>
+    </div>
   </div>
   <a href="/books">Back</a>
 
