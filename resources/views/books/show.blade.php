@@ -51,8 +51,8 @@
                   <form method='POST' action="/reviews/{{ $review->id }}">
                     @method('PATCH')
                     @csrf
-
-                    <button onChange='this.form.submit()' class='badge badge-primary'>Like</button>
+                    <input class='d-none' type="text" name='likes' value='{{ $review->likes }}'>
+                    <button type='submit' class='badge badge-primary'>Like</button>
                   </form>
                 </div>
               </div>

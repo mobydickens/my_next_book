@@ -16,3 +16,5 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 
 Route::resource('books', 'BooksController');
+
+Route::patch('/reviews/{review}', 'BooksReviewsController@update');
