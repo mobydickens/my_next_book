@@ -22,7 +22,9 @@
         
         @foreach ($book->reviews as $review)
           <div class='card' style="width: 38rem;">
-            <div class='card-header'>
+            <div class='card-header d-flex justify-content-between'>
+
+            <!-- Stars -->
               @if ($review->rating == '5')
                 <div>⭐⭐⭐⭐⭐</div>
                 @elseif ($review->rating == '4')
@@ -34,8 +36,27 @@
                 @elseif ($review->rating == '1')
                 <div>⭐</div>
                 @elseif ($review->rating == '0')
-                <div class='badge badge-warning'>Unfinished</div>
+                <div class='badge badge-warning align-self-center'>Unfinished</div>
               @endif
+
+            <!-- number of likes -->
+              <div class='d-flex'>
+                <div class='d-flex'>
+                  <div>{{ $review->likes }} likes</div>
+                  <i class="ml-2 mr-4 align-self-center fas fa-heart"></i>
+                </div>
+
+              <!-- like button -->
+                <div>
+                  <form method='POST' action="/reviews/{{ $review->id }}">
+                    @method('PATCH')
+                    @csrf
+
+                    <button onChange='this.form.submit()' class='badge badge-primary'>Like</button>
+                  </form>
+                </div>
+              </div>
+
             </div>
             <div class='card-body'>
               <div class='blockquote mb-0'>
