@@ -10,12 +10,12 @@ class BooksReviewsController extends Controller
 {
   public function store(Book $book)
   {
-    Review::create([
-      'book_id' => $book->id,
-      'name' => request('name'),
-      'rating' => request('rating'),
-      'review' => request('review')
+    request()->validate([
+      'name' => 'required',
+      'rating' => 'required',
+      'review' => 'required'
     ]);
+    $book->addReview(request('name'), request('rating'), request('review'));
     return back();
   }
   public function update(Review $review)

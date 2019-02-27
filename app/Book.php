@@ -16,4 +16,8 @@ class Book extends Model
   {
     return $this->hasMany(Review::class);
   }
+  public function addReview($name, $rating, $review)
+  {
+    $this->reviews()->create(compact('name', 'rating', 'review'));
+  }
 }

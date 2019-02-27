@@ -70,23 +70,26 @@
       @endif
 
       <!-- add review form -->
-      <form method='POST' action="/books/{{ $book->id }}/reviews">
+      <form class='border shadow-sm p-4 mt-3' method='POST' action="/books/{{ $book->id }}/reviews">
         @csrf
         <h4>Leave a review</h4>
-        <div class='form-group'>
-          <label>Your name:</label>
-          <input name='name' type="text">
-        </div>
-        <div class='form-group'>
-          <label>My rating:</label>
-          <input type="number" name='rating' min='0' max='5'>
+        <div class='d-flex form-group'>
+          <div class='mr-4'>
+            <label>Your name:</label>
+            <input class='form-control' name='name' type="text" required>
+          </div>
+          <div>
+            <label>Your rating:</label>
+            <input class='form-control' type="number" name='rating' min='0' max='5' required>
+          </div>
         </div>
         <div class='form-group'>
           <label>What did you think?</label>
-          <textarea class='' name='review' type="text"></textarea>
+          <textarea class='form-control' name='review' type="text" required></textarea>
         </div>
         <button type='submit' class='btn btn-primary'>Save</button>
         </div>
+        @include ('errors')
       </form>
     </div>
   </div>

@@ -58,16 +58,7 @@
           class='btn btn-primary' 
           type='btn'>Add Book
         </button>
-        @if ($errors->any())
-        <div>
-          @foreach ($errors->all() as $error)
-            <div 
-              class='alert alert-danger' 
-              role='alert'>{{ $error }}
-            </div>
-          @endforeach
-        </div>
-        @endif
+        @includes('errors')
       </form>
       <div class='ml-2 w-50 p-5 border shadow-sm d-flex flex-wrap'>
         <h2><a href='/books' class='text-decoration-none text-reset'>Browse All Books</a></h2>
