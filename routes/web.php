@@ -19,3 +19,10 @@ Route::resource('books', 'BooksController');
 
 Route::post('/books/{book}/reviews', 'BooksReviewsController@store');
 Route::patch('/reviews/{review}', 'BooksReviewsController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
