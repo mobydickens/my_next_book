@@ -7,6 +7,10 @@ use App\Book;
 
 class BooksController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth')->only(['store', 'edit', 'update', 'destroy']);
+  }
   public function index() 
   {
     $books = Book::all();
@@ -15,12 +19,15 @@ class BooksController extends Controller
 
   public function store(Book $book) 
   {
-    request()->validate([
+    $attributes = request()->validate([
       'title' => 'required',
       'author' => 'required',
-      'genre' => 'required'
+      'genre' => 'required',
     ]);
-    $book->create(request(['title', 'author', 'genre', 'recommended']));
+
+    $attributes['recommended'] = request('recommended');
+
+    $book->create($attributes + ['owner_id' => auth()->id() ]);
     return redirect('/books');
   }
 

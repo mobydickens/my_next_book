@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
   protected $fillable = [
+    'owner_id',
     'title',
     'author',
     'genre',
@@ -16,8 +17,8 @@ class Book extends Model
   {
     return $this->hasMany(Review::class);
   }
-  public function addReview($name, $rating, $review)
+  public function addReview($attributes)
   {
-    $this->reviews()->create(compact('name', 'rating', 'review'));
+    $this->reviews()->create(compact($attributes));
   }
 }
