@@ -19,6 +19,7 @@ class CreateReviewsTable extends Migration
             $table->string('name');
             $table->string('rating');
             $table->text('review');
+            $table->unsignedInteger('likes');
             $table->timestamps();
         });
     }
