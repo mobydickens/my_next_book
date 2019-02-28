@@ -38,6 +38,7 @@ class BooksController extends Controller
 
   public function edit(Book $book) 
   {
+    abort_if($book->owner_id !== auth()->id(), 403);
     return view('books.edit', compact('book'));
   }
 

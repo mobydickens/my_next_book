@@ -11,7 +11,12 @@
         <h4 class='card-subtitle mb-2 text-muted'>{{ $book->author }}</h4>
         <p>{{ $book->genre }}</p>
         <p>Submitted by: {{ $book->recommended }}</p>
+
+        <!-- only shows update link to user that the book belongs to -->
+        @can('update', $book)
         <a href="/books/{{ $book->id }}/edit">Edit book details</a>
+        @endcan
+
       </div>
     </div>
 
