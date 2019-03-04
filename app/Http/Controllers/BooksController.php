@@ -25,7 +25,7 @@ class BooksController extends Controller
       'genre' => 'required',
     ]);
 
-    $attributes['recommended'] = request('recommended');
+    $attributes['recommended'] = request('recommended') ? request('recommended') : "Anonymous";
 
     $book->create($attributes + ['owner_id' => auth()->id() ]);
     return redirect('/books');
